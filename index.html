@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة إلى شخص</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 100%;
+            margin-bottom: 20px;
+            
+        }
+
+        .message-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: right;
+            direction: rtl;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* تحسينات إضافية */
+        .footer p {
+            margin-top: 10px;
+        }
+
+        .company-info {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- شعار المنظمة -->
+        
+        <div class="message-box" id="messageBox">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRC3Jz1rOh57tYgsR9sXyY1RWenFLQ7QOtUIsE2eUzS7jTPpaPEiU2pEvIRVEs2UCIxWFyx0iRvaoDFQ9yk2YkgUktmSFMThl_uAmE_t54wXR7O5hyxzRWy4dZFe53NBp8Zh4MJyLnrViSIuoQU4MYPen9c3AoG9lj-WVHnaMJFvYIyKYOG-WgqejfhFE/w640-h178/Untitled-2.png" alt="شعار المنظمة" class="logo">
+
+            <h2>رسالة إلى مناسك ابراهيم</h2>
+            <p>نعم، يمكن العمل بشهادتك والبطاقة في المصالح الحكومية، يجب فقط دراسة التمريض العالي. شكراً.</p>
+            <div class="footer">
+                <p>منظمة الجيل الحديد المحدة للتنمية المستدامة</p>
+            </div>
+            <button onclick="closeMessage()">إغلاق</button>
+        </div>
+        
+        <!-- معلومات إضافية للشركة -->
+        <div class="company-info">
+            <p>حقوق الطبع والنشر © 2024 منظمة الجيل الحديد المحدة للتنمية المستدامة. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+    <script>
+        // دالة لإنشاء أو تحديث الـ localStorage
+        function setLocalStorage(name, value) {
+            localStorage.setItem(name, value);
+        }
+
+        // دالة لقراءة الـ localStorage
+        function getLocalStorage(name) {
+            return localStorage.getItem(name);
+        }
+
+        // التحقق من إذا كانت الصفحة قد تم فتحها من قبل
+        if (getLocalStorage("pageOpened") === "true") {
+            // تدمير الصفحة مباشرة بعد أول زيارة
+            document.body.innerHTML = '';  // حذف كل محتويات الصفحة
+        } else {
+            // إذا كانت الزيارة الأولى، يتم تعيين localStorage
+            setLocalStorage("pageOpened", "true");
+        }
+
+        function closeMessage() {
+            // بعد إغلاق الرسالة، سيتم تدمير المحتوى
+            setLocalStorage("pageOpened", "true");
+            document.body.innerHTML = '';  // حذف كل محتويات الصفحة
+        }
+    </script>
+</body>
+</html>
